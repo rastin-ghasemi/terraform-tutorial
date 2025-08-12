@@ -1,4 +1,4 @@
-![image_alt]()
+![image_alt](https://github.com/rastin-ghasemi/terraform-tutorial/blob/main/Day-15-Azure-Function/README.md.png)
 ## Azure Functions: Serverless Event-Driven Computing
 Azure Functions is Microsoft's serverless compute service that lets you run small pieces of code (functions) in the cloud without managing infrastructure. It automatically scales and charges you only when your code runs.
 
