@@ -20,7 +20,7 @@ Runs code in response to triggers:
 Serverless computing allows developers to build and run applications without managing infrastructure.
 - Good for Cost.
 - Fast
-- ther is server but we dont worry about it.
+- There is a server, but we don't worry about it.
 ## 2. Automatic Scaling
 - Instantly scales up/down based on demand
 
@@ -59,7 +59,7 @@ Serverless computing allows developers to build and run applications without man
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=linux%2Cisolated-process%2Cnode-v4%2Cpython-v2%2Chttp-trigger%2Ccontainer-apps&pivots=programming-language-csharp
 ```
 - Good Note:
-you can deploy(upload) your local function to azure function. (we do it in demo) 
+You can deploy(upload) your local function to an Azure function. (We do it in demo) 
 ## What is a Cold Start?
 A cold start is the delay that occurs when a serverless function is invoked after being idle (scaled to zero). During this time:
 
@@ -78,7 +78,7 @@ First, we use the core tool to set it up locally and then test it with POSTMAN. 
 https://github.com/rishabkumar7/azure-qr-code/tree/main
 ```
 After that, we deploy it to Azure function using terraform .
-- The blob storage is public to the client, Wher others can download PNGs.(so remmber that to enbale it in azure)
+- The blob storage is public to the client, Where others can download PNGs.(So remember that to enable it in Azure)
 
 ## Prerequisites
 
@@ -91,12 +91,12 @@ After that, we deploy it to Azure function using terraform .
 - resource gp (rg.tf)
 - storage acc (sa.tf)
 - create service plan (service-plan.tf)
-- create function app (func.tf)
-take about 30 min to apply this fiels.
+- Create function app (func.tf)
+takes about 30 minutes to apply.
 ###
 Now we are ready to deploy our app
 ###
-Before that first test our function API locally
+Before that first test, our function API locally
 ##
 1. **cd azure-qr-code/qrCodeGenerator**
 
@@ -116,7 +116,7 @@ Functions:
 curl -X GET https://azure-qr-code.azurewebsites.net/api/GenerateQRCode -H "Content-Type: application/json" -d '{"url":"https://www.example.com"}'
 ```
 ###
-now we test local function and we have our azure setup.lets config our function to use azure storege acc.
+Now we test the local function, and we have our Azure setup. Let's configure our function to use Azure storage account.
 ## 5. create local.settings.json
 nano local.settings.json
 ```bash
@@ -129,12 +129,12 @@ nano local.settings.json
     }
 }
 ```
-Value of AzureWebJobsStorage and STORAGE_CONNECTION_STRING are in:
+The value of AzureWebJobsStorage and STORAGE_CONNECTION_STRING are in:
 
 azure Portal > rg > storage acc > security + network > access key > 
-copy Connection string
+Copy Connection string
 
-then fill them.
+Then fill them.
 
 ## 6. Deploy to Azure
 Deploy your function app to Azure using the following command:
@@ -165,15 +165,15 @@ output:
 Setting FUNCTIONS_WORKER_RUNTIME = ****
 Setting STORAGE_CONNECTION_STRING = ****
 ```
-- remmber you should do both.
+- Remember you should do both.
 ## troubleshooting
-1. **Go to function in azure**
+1. **Go to the function in Azure**
 - Deployment Center > logs
 2. **Environment variables**
-Go to app setting and check variables
-3. **dont forget to restart the function**
+Go to the app settings and check the variables
+3. **Don't forget to restart the function**
 4. **Development tools in func ssh**
-### some error log you may faced:
+### Some error logs you may face:
 ```bash
 ==> functionslogsv2.log <==
 4,ee6b2301-c691-4551-8836-1c0551de8b5c,api-func-ghasemi.azurewebsites.net,api-func-ghasemi,,ExecutingHttpRequest,Microsoft.Azure.WebJobs.Script.WebHost.Middleware.SystemTraceMiddleware,"","Executing HTTP request: {   'requestId': '7bd1b816-fc18-4cd5-8059-8d97f47f61c6',   'method': 'GET',   'userAgent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',   'uri': '/' }",4.1041.200.1,2025-08-12T08:19:26.6856740Z,,"",,,7bd1b816-fc18-4cd5-8059-8d97f47f61c6
